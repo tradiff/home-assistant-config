@@ -1,0 +1,20 @@
+id: travis-meeting-off
+alias: Travis Meeting Off
+
+trigger:
+  - platform: state
+    entity_id: binary_sensor.traviss_macbook_pro_camera_in_use
+    to: "off"
+
+action:
+  - service: light.turn_off
+    target:
+      entity_id: light.office_wall_light1
+  - service: light.turn_off
+    target:
+      entity_id: light.office_wall_light2
+  - service: light.turn_off
+    target:
+      entity_id: light.on_air_sign
+
+mode: single
