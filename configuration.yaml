@@ -13,3 +13,18 @@ scene: !include scenes.yaml
 
 zwave:
   usb_path: /dev/ttyUSB0
+
+binary_sensor:
+  - platform: workday
+    country: US
+    workdays: [mon, tue, wed, thu, fri]
+    excludes: [sat, sun, holiday]
+
+rest_command:
+  slack_presense:
+    url: https://slack.com/api/users.setPresence
+    method: POST
+    content_type: application/json
+    headers:
+      authorization: !secret slack_auth_header
+    payload: '{"presence": "{{presence}}"}'

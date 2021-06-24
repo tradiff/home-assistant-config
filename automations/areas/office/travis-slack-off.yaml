@@ -1,0 +1,18 @@
+id: travis-slack-off
+alias: Travis Slack Off
+
+trigger:
+  - platform: time
+    at: "16:00:00"
+
+condition:
+  condition: state
+  entity_id: binary_sensor.workday_sensor
+  state: "on"
+
+action:
+  - service: rest_command.slack_presense
+    data:
+      presence: away
+
+mode: single

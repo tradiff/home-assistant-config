@@ -1,0 +1,18 @@
+id: travis-slack-on
+alias: Travis Slack On
+
+trigger:
+  - platform: time
+    at: "07:00:00"
+
+condition:
+  condition: state
+  entity_id: binary_sensor.workday_sensor
+  state: "on"
+
+action:
+  - service: rest_command.slack_presense
+    data:
+      presence: auto
+
+mode: single
