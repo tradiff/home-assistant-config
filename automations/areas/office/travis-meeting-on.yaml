@@ -9,24 +9,6 @@ trigger:
 action:
   - service: light.turn_on
     target:
-      entity_id: light.office_wall_light1
-    data:
-      transition: 0
-      brightness_pct: 100
-      hs_color:
-        - 300 # pink
-        - 100
-  - service: light.turn_on
-    target:
-      entity_id: light.office_wall_light2
-    data:
-      transition: 0
-      brightness_pct: 100
-      hs_color:
-        - 240 # blue
-        - 100
-  - service: light.turn_on
-    target:
       entity_id: light.on_air_sign
     data:
       transition: 0
@@ -34,4 +16,5 @@ action:
       hs_color:
         - 120 # green
         - 100
+
 mode: single

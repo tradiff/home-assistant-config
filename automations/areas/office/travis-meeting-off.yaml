@@ -10,8 +10,6 @@ action:
   - service: light.turn_off
     target:
       entity_id:
-        - light.office_wall_light1
-        - light.office_wall_light2
         - light.on_air_sign
 
 mode: single
