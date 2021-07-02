@@ -1,0 +1,16 @@
+id: mailbox-open-alert
+alias: Mailbox Open Alert
+description: >-
+  Alert devices when the mailbox is opened
+
+trigger:
+  - platform: state
+    entity_id: input_boolean.mailbox_open
+    to: "on"
+
+action:
+  - service: notify.notify
+    data:
+      message: "Mail Call!"
+
+mode: single
