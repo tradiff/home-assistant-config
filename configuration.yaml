@@ -28,3 +28,11 @@ rest_command:
     headers:
       authorization: !secret slack_auth_header
     payload: '{"presence": "{{presence}}"}'
+
+cover:
+  - platform: opengarage
+    covers:
+      garage:
+        host: 192.168.87.26
+        device_key: !secret opengarage_device_key
+        name: Garage Door

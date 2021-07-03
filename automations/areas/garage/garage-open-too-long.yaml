@@ -1,0 +1,17 @@
+id: garage-open-too-long
+alias: Garage Open Too Long
+description: >-
+  Alert devices when the garage has been open for too long
+
+trigger:
+  - platform: state
+    entity_id: cover.garage_door
+    to: "open"
+    for: 00:05:00
+
+action:
+  - service: notify.notify
+    data:
+      message: "The garage door has been open for over 5 minutes."
+
+mode: single
