@@ -1,0 +1,17 @@
+id: wax-melt-off
+alias: Wax Melt Off
+description: >-
+  Turn off the wax melt after a certain time period
+
+trigger:
+  - platform: state
+    entity_id: switch.wax_melt_plug
+    to: "on"
+    for: 03:00:00
+
+action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.wax_melt_plug
+
+mode: single
