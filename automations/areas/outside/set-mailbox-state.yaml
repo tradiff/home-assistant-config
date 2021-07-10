@@ -17,7 +17,7 @@ action:
   - choose:
       - conditions:
           - condition: template
-            value_template: "{{ trigger.event.data.args.value > -550 }}"
+            value_template: "{{ trigger.event.data.args.value > -850 }}"
         sequence:
           - service: input_boolean.turn_on
             entity_id: input_boolean.mailbox_open
