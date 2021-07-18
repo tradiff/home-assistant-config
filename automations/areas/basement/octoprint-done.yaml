@@ -1,0 +1,16 @@
+id: octoprint-done
+alias: OctoPrint done
+description: >-
+  Send a notification when OctoPrint is done printing
+
+trigger:
+  - platform: state
+    entity_id: binary_sensor.octoprint_printing
+    to: "off"
+
+action:
+  - service: notify.notify
+    data:
+      message: "OctoPrint done at {{ now().strftime('%-I:%M %p') }}"
+
+mode: single
