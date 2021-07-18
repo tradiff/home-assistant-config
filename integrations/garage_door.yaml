@@ -1,0 +1,7 @@
+cover:
+  - platform: opengarage
+    covers:
+      garage:
+        host: 192.168.87.26
+        device_key: !secret opengarage_device_key
+        name: Garage Door

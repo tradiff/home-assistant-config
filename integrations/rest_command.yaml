@@ -1,0 +1,8 @@
+rest_command:
+  slack_presense:
+    url: https://slack.com/api/users.setPresence
+    method: POST
+    content_type: application/json
+    headers:
+      authorization: !secret slack_auth_header
+    payload: '{"presence": "{{presence}}"}'
