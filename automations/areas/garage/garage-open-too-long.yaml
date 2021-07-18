@@ -8,10 +8,20 @@ trigger:
     entity_id: cover.garage_door
     to: "open"
     for: 00:05:00
+  - platform: state
+    entity_id: cover.garage_door
+    to: "open"
+    for: 00:30:00
 
 action:
   - service: notify.notify
     data:
-      message: "The garage door has been open for over 5 minutes."
+      message: "The garage door has been open since {{ now().strftime('%-I:%M %p') }}"
+      data:
+        tag: garage
+        color: red
+        sticky: true
+        url: "/lovelace/garage"
+        clickAction: "/lovelace/garage"
 
 mode: single

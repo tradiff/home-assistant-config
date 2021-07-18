@@ -1,0 +1,18 @@
+id: garage-closed
+alias: Garage Closed
+description: >-
+  Dismiss any garage alerts
+
+trigger:
+  - platform: state
+    entity_id: cover.garage_door
+    to: "closed"
+
+action:
+  - service: notify.notify
+    data:
+      message: "clear_notification"
+      data:
+        tag: garage
+
+mode: single
