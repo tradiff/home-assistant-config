@@ -1,0 +1,40 @@
+id: ev-low-battery-notification
+alias: EV low battery notification
+description: >-
+  Sends a notification when the EV needs to be charged
+
+trigger:
+  - platform: state
+    entity_id: device_tracker.handsome_jack_location_tracker
+    to: "home"
+
+  - platform: numeric_state
+    entity_id: sensor.handsome_jack_range_sensor
+    below: 100
+
+  - platform: state
+    entity_id: binary_sensor.handsome_jack_charger_sensor
+    to: "off"
+
+condition:
+  - condition: state
+    entity_id: device_tracker.handsome_jack_location_tracker
+    state: "home"
+
+  - condition: numeric_state
+    entity_id: sensor.handsome_jack_range_sensor
+    below: 100
+
+  - condition: state
+    entity_id: binary_sensor.handsome_jack_charger_sensor
+    state: "off"
+
+action:
+  - service: notify.notify
+    data:
+      message: "Plug in Handsome Jack - {{ now().strftime('%-I:%M %p') }}"
+      data:
+        tag: ev
+        color: red
+
+mode: single
