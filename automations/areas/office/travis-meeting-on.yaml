@@ -1,5 +1,7 @@
 id: travis-meeting-on
 alias: Travis Meeting On
+description: >-
+  Turn on "on air" light, and the webcam light when the webcam turns on
 
 trigger:
   - platform: state
@@ -16,5 +18,9 @@ action:
       hs_color:
         - 120 # green
         - 100
+
+  - service: switch.turn_on
+    target:
+      entity_id: switch.webcam_light
 
 mode: single

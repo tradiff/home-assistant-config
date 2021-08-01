@@ -1,5 +1,7 @@
 id: travis-meeting-off
 alias: Travis Meeting Off
+description: >-
+  Turn off "on air" light, and the webcam light when the webcam turns off
 
 trigger:
   - platform: state
@@ -11,5 +13,9 @@ action:
     target:
       entity_id:
         - light.on_air_sign
+
+  - service: switch.turn_off
+    target:
+      entity_id: switch.webcam_light
 
 mode: single
