@@ -1,0 +1,15 @@
+id: coach-lights-on
+alias: Coach lights on
+description: >-
+  Turn on coach lights during the night
+
+trigger:
+  - platform: sun
+    event: sunset
+
+action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.coach_lights
+
+mode: single

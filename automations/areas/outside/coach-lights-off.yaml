@@ -1,0 +1,15 @@
+id: coach-lights-off
+alias: Coach lights off
+description: >-
+  Turn off coach lights during the day
+
+trigger:
+  - platform: sun
+    event: sunrise
+
+action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.coach_lights
+
+mode: single
