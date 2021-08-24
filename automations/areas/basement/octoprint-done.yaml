@@ -5,8 +5,8 @@ description: >-
 
 trigger:
   - platform: state
-    entity_id: binary_sensor.octoprint_printing
-    to: "off"
+    entity_id: sensor.octoprint_job_percentage
+    to: "100.0"
 
 action:
   - service: notify.notify
