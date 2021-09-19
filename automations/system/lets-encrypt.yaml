@@ -1,0 +1,13 @@
+id: lets-encrypt
+alias: Lets Encrypt
+
+trigger:
+  - platform: time
+    at: "01:00:00"
+
+action:
+  - service: hassio.addon_start
+    data:
+      addon: core_letsencrypt
+
+mode: single
