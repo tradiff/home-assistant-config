@@ -1,0 +1,16 @@
+alias: Background Noise Start
+sequence:
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.main_bedroom_speaker
+    data:
+      media_content_type: music
+      media_content_id: media-source://media_source/local/brown-noise-10.mp3
+
+  - service: media_player.volume_set
+    target:
+      entity_id: media_player.main_bedroom_speaker
+    data:
+      volume_level: 0.3
+
+mode: single

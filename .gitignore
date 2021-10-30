@@ -1,5 +1,6 @@
 # Generic ignores
 *.log
+*.log.*
 *.db
 *.db-shm
 *.db-wal
@@ -26,7 +27,6 @@ image
 ip_bans.yaml
 known_devices.yaml
 neighbours
-scripts.yaml
 secrets.yaml
 OZW_Log.txt
 *.sqlite

@@ -1,0 +1,11 @@
+id: background-noise
+alias: Background Noise
+
+trigger:
+  - platform: time
+    at: "22:00:00"
+
+action:
+  service: script.background_noise_start
+
+mode: single
