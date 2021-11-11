@@ -1,3 +1,5 @@
+# https://github.com/dr-prodigy/python-holidays/blob/master/holidays/countries/united_states.py
+
 binary_sensor:
   - platform: workday
     country: US
