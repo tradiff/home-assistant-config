@@ -3,3 +3,5 @@ binary_sensor:
     country: US
     workdays: [mon, tue, wed, thu, fri]
     excludes: [sat, sun, holiday]
+    remove_holidays:
+      - "Veterans Day"
