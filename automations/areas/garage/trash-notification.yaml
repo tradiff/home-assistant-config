@@ -1,0 +1,38 @@
+id: trash-notification
+alias: Trash notification
+description: >-
+  Alert devices when the trash bin needs to go out
+
+trigger:
+  - platform: time
+    at: "17:00"
+  - platform: time
+    at: "19:00"
+  - platform: time
+    at: "21:00"
+  - platform: time
+    at: "22:00"
+
+condition:
+  - condition: time
+    weekday:
+      - thu
+  - condition: state
+    entity_id: binary_sensor.trash_week
+    state: "on"
+  - condition: state
+    entity_id: binary_sensor.trash_bin
+    state: "on"
+
+action:
+  - service: notify.notify
+    data:
+      title: TRASH bin
+      message: "The trash bin needs to go out"
+      data:
+        color: blue
+        sticky: false
+        url: "/lovelace/garage"
+        clickAction: "/lovelace/garage"
+
+mode: single

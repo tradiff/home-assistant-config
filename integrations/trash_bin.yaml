@@ -1,0 +1,24 @@
+binary_sensor:
+  - platform: threshold
+    name: trash_bin
+    entity_id: sensor.trash_bin
+    lower: 0.50
+
+  - platform: threshold
+    name: recycle_bin
+    entity_id: sensor.recycle_bin
+    lower: 0.50
+
+  - platform: template
+    sensors:
+      trash_week:
+        friendly_name: "Trash week"
+        value_template: >-
+          {{(as_timestamp(now())|timestamp_custom ('%U') | int % 2) == 1 }}
+
+  - platform: template
+    sensors:
+      recycle_week:
+        friendly_name: "Recycle week"
+        value_template: >-
+          {{(as_timestamp(now())|timestamp_custom ('%U') | int % 2) == 0 }}
