@@ -7,3 +7,4 @@ binary_sensor:
     excludes: [sat, sun, holiday]
     remove_holidays:
       - "Veterans Day"
+      - "New Year's Eve"
