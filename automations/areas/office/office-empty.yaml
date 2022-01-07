@@ -1,0 +1,20 @@
+id: office-empty
+alias: Office empty
+description: >-
+  Turn off office lights if the room is empty
+
+trigger:
+  - platform: state
+    entity_id: binary_sensor.office_occupancy
+    to: "off"
+
+action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.office_light
+
+  - service: switch.turn_off
+    target:
+      entity_id: switch.bestagons
+
+mode: single
