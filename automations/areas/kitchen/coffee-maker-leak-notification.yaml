@@ -1,0 +1,18 @@
+id: coffee-maker-leak-notification
+alias: Coffee Maker Leak Notification
+description: >-
+  Alert devices when the coffee maker has a leak
+
+trigger:
+  - platform: state
+    entity_id: binary_sensor.coffee_maker_leak_sensor
+    to: "on"
+
+action:
+  - service: notify.notify
+    data:
+      message: "Leak detected near the coffee maker!"
+      data:
+        color: red
+
+mode: single
