@@ -1,0 +1,4 @@
+namecheapdns:
+  host: !secret namecheap_dyndns_host
+  domain: !secret namecheap_dyndns_domain
+  password: !secret namecheap_dyndns_password
