@@ -9,12 +9,12 @@ trigger:
     to: "off"
 
 action:
-  - service: switch.turn_off
+  - service: light.turn_off
     target:
-      entity_id: switch.office_light
+      entity_id: light.office_overhead
 
-  - service: switch.turn_off
+  - service: light.turn_off
     target:
-      entity_id: switch.bestagons
+      entity_id: light.office_shelf
 
 mode: single
