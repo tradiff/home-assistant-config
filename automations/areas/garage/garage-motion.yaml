@@ -1,0 +1,12 @@
+id: garage-motion
+alias: Garage Motion
+description: >-
+  Turn on garage lights
+
+use_blueprint:
+  path: homeassistant/motion_switch.yaml
+  input:
+    motion_entity: binary_sensor.garage_motion_group
+    switch_target:
+      entity_id: switch.garage_light
+    no_motion_wait: 120
