@@ -13,6 +13,8 @@ __pycache__
 .storage
 deps
 tts
+www
+custom_components
 
 # Specific file ignores
 .config_entries.json
