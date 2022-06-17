@@ -5,3 +5,17 @@ homeassistant:
 http:
   ssl_certificate: "/ssl/fullchain.pem"
   ssl_key: "/ssl/privkey.pem"
+
+light:
+  - platform: group
+    name: Main Bedroom Group
+    entities:
+      - light.main_bedroom_1
+      - light.main_bedroom_2
+
+binary_sensor:
+  - platform: group
+    name: Garage Motion Group
+    entities:
+      - binary_sensor.garage_motion_1
+      - binary_sensor.garage_motion_2
