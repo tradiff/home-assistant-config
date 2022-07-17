@@ -1,7 +1,0 @@
-alias: Background Noise Stop
-sequence:
-  - service: media_player.media_stop
-    target:
-      entity_id: media_player.main_bedroom_speaker
-
-mode: single
