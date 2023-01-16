@@ -5,7 +5,7 @@ description: >-
 
 trigger:
   - platform: state
-    entity_id: binary_sensor.traviss_macbook_pro_camera_in_use
+    entity_id: binary_sensor.zoom_travis
     to: "on"
 
 action:
@@ -16,7 +16,7 @@ action:
       transition: 0
       brightness_pct: 20
       hs_color:
-        - 120 # green
+        - 233 # blue
         - 100
 
   - service: switch.turn_on

@@ -5,7 +5,7 @@ description: >-
 
 trigger:
   - platform: state
-    entity_id: binary_sensor.traviss_macbook_pro_camera_in_use
+    entity_id: binary_sensor.zoom_travis
     to: "off"
 
 action:
