@@ -1,0 +1,54 @@
+id: disable-garage-motion
+alias: Disable garage motion automation
+description: >-
+  If the switch gets toggled from `off` to `on` twice within 10 seconds, 
+  disable the `garage-motion` automation for 4 hours.
+
+trigger:
+  - platform: state
+    entity_id: switch.garage_light
+    from: "off"
+    to: "on"
+
+action:
+  - if:
+      # If the helper was set less than 10 seconds ago
+      - condition: template
+        value_template: >-
+          {{as_timestamp(now()) <
+          as_timestamp(states("input_datetime.garage_disable_automation_timer"))
+          + 10}}
+    then:
+      # Flash lights to show user feedback
+      - service: switch.turn_off
+        target:
+          entity_id: switch.garage_light
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 0
+          milliseconds: 200
+      - service: switch.turn_on
+        target:
+          entity_id: switch.garage_light
+
+      # Disable the automation, wait 4 hours, then re-enable the automation
+      - service: automation.turn_off
+        entity_id: automation.garage_motion
+      - delay:
+          hours: 4
+          minutes: 0
+          seconds: 0
+          milliseconds: 0
+      - service: automation.turn_on
+        target:
+          entity_id: automation.garage_motion
+    else:
+      # else, set the helper to now
+      - service: input_datetime.set_datetime
+        data:
+          timestamp: "{{ now().timestamp() }}"
+        target:
+          entity_id: input_datetime.garage_disable_automation_timer
+
+mode: single
