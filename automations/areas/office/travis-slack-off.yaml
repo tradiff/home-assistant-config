@@ -3,7 +3,7 @@ alias: Travis Slack Off
 
 trigger:
   - platform: time
-    at: "16:00:00"
+    at: "17:00:00"
 
 condition:
   condition: state
